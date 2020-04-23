@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Aux from "./../../HOC/Aux";
+import Aux from "./../../HOC/Auxhoc";
 import Burger from "./../../components/Burger/Burger";
 import BuildControls from "../../components/Burger/BulidControls/BuildCotrols";
 import Model from "./../../components/UI/Model/MOdel";
@@ -13,7 +13,7 @@ import * as actionsTypes from "../../store/actions/index";
 
 class BurgerBuilder extends Component {
   state = {
-    purchasing: false
+    purchasing: false,
   };
   componentDidMount() {
     //console.log("this is component didi mount", this.props.ings);
@@ -21,7 +21,7 @@ class BurgerBuilder extends Component {
   }
   udpatePurchase(ingrediant) {
     const sum = Object.keys(ingrediant)
-      .map(igKey => {
+      .map((igKey) => {
         return ingrediant[igKey];
       })
       .reduce((sum, el) => {
@@ -43,7 +43,7 @@ class BurgerBuilder extends Component {
 
   render() {
     const disabledInfo = {
-      ...this.props.ings
+      ...this.props.ings,
     };
     //console.log(disabledInfo);
     for (let key in disabledInfo) {
@@ -94,22 +94,22 @@ class BurgerBuilder extends Component {
     );
   }
 }
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     ings: state.burgerBulider.ingrediant,
     price: state.burgerBulider.totalPric,
-    error: state.burgerBulider.error
+    error: state.burgerBulider.error,
   };
 };
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    onIngrediantAdd: ingName => dispatch(actionsTypes.addIngrediant(ingName)),
-    onIngrediantRemove: ingName =>
+    onIngrediantAdd: (ingName) => dispatch(actionsTypes.addIngrediant(ingName)),
+    onIngrediantRemove: (ingName) =>
       dispatch(actionsTypes.removeIngrediant(ingName)),
     onInitIngrediant: () => {
       dispatch(actionsTypes.initEngrediant());
     },
-    onInitPurchase: () => dispatch(actionsTypes.purchaseInit())
+    onInitPurchase: () => dispatch(actionsTypes.purchaseInit()),
   };
 };
 export default connect(

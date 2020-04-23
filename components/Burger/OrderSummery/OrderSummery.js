@@ -1,8 +1,8 @@
 import React from "react";
-import Aux from "./../../../HOC/Aux";
+import Aux from "./../../../HOC/Auxhoc";
 import Buttons from "./../../UI/Buttons/Button";
-const orderSummery = props => {
-  const ingrediantsSummary = Object.keys(props.ingrediants).map(igkey => {
+const orderSummery = (props) => {
+  const ingrediantsSummary = Object.keys(props.ingrediants).map((igkey) => {
     return (
       <li key={igkey}>
         <span style={{ textTransform: "capitalize" }}>{igkey}</span> :{" "}

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import classes from "./Model.css";
-import Aux from "./../../../HOC/Aux";
+import Aux from "./../../../HOC/Auxhoc";
 import BackDrop from "./../Backdrop/BackDrop";
 class Model extends Component {
   //improving app performanec by allow rerending component
@@ -21,7 +21,7 @@ class Model extends Component {
             transform: this.props.show
               ? "translateY(0)"
               : "translateY(-1000vh)",
-            opacity: this.props.show ? "1" : "0"
+            opacity: this.props.show ? "1" : "0",
           }}
         >
           {this.props.children}
